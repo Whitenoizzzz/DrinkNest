@@ -3,7 +3,7 @@
 
 # DrinkNest
 
-DrinkNest is an app that allows you to explore a wide range of cocktail recipes, learn about their ingredients, and discover new mixes to try at your next gathering.
+DrinkNest is an website that allows you to explore a wide range of cocktail recipes, learn about their ingredients, and discover new mixes to try at your next gathering.
 
 ## Features
 
