@@ -43,6 +43,7 @@ const router = createBrowserRouter([
       {
         path: 'newsletter',
         element: <NewsLetter></NewsLetter>,
+        errorElement: <SinglePageError></SinglePageError>,
         action: newsletterAction,
       },
       {
@@ -50,14 +51,6 @@ const router = createBrowserRouter([
         element: <About></About>,
       },
     ],
-  },
-  {
-    path: '/about',
-    element: (
-      <div>
-        <About></About>
-      </div>
-    ),
   },
 ])
 

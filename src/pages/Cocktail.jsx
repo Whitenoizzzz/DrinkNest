@@ -1,4 +1,4 @@
-import { useLoaderData, Link, Navigate } from 'react-router-dom'
+import { useLoaderData, useNavigate, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import Wrapper from '../assets/wrappers/CocktailPage'
 import { useQuery } from '@tanstack/react-query'
@@ -25,6 +25,7 @@ export const loader =
 
 function Cocktail() {
   const { id } = useLoaderData()
+  const navigate = useNavigate()
   const { data } = useQuery(searchSingleCocktailQuery(id))
   if (!data?.drinks?.[0]) return <Navigate to="/"></Navigate>
   const singleDrink = data.drinks[0]
@@ -39,19 +40,18 @@ function Cocktail() {
 
   const validIngredients = Object.keys(singleDrink)
     .filter((key) => {
-      return key.startsWith('strIngredient') && singleDrink[key] != null
+      return key.startsWith('strIngredient') && singleDrink[key] !== null
     })
     .map((key) => {
       return singleDrink[key]
     })
-  console.log(validIngredients)
 
   return (
     <Wrapper>
       <header>
-        <Link to="/" className="btn">
+        <button onClick={() => navigate(-1)} className="btn">
           back home
-        </Link>
+        </button>
         <h3>{name}</h3>
       </header>
       <div className="drink">

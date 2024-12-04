@@ -11,6 +11,7 @@ const searchCocktailQuery = (searchTerm) => {
   return {
     queryKey: ['search', searchTerm || 'all'],
     queryFn: async () => {
+      searchTerm = searchTerm || 'a'
       const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`)
       return response.data.drinks
     },
@@ -29,8 +30,8 @@ export const loader =
 
 function Landing() {
   const { searchTerm } = useLoaderData()
+  console.log(searchTerm)
   const { data: drinks } = useQuery(searchCocktailQuery(searchTerm))
-
   return (
     <>
       <SearchForm searchTerm={searchTerm}></SearchForm>
